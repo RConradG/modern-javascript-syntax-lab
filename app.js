@@ -22,20 +22,26 @@ const nums = [13, 87, 2, 89, 12, 4, 90, 63];
 
 // Your code here:
 
-const petsArray = ['Rover', 'Snuffles', 'Toto', 'Spot'];
+const numsTimesTwo = nums.map((num) => {
+  return num * 2;
+});
 
-const [firstPet, secondPet] = petsArray;
+console.log(numsTimesTwo);
 
-console.log(firstPet);
-// Prints: 'Rover'
-console.log(secondPet);
-// Prints: 'Snuffles'
+// const petsArray = ['Rover', 'Snuffles', 'Toto', 'Spot'];
 
-// Equivalent in traditional bracket notation:
-console.log(petsArray[0]);
-// Prints: 'Rover'
-console.log(petsArray[1]);
-// Prints: 'Snuffles'
+// const [firstPet, secondPet] = petsArray;
+
+// console.log(firstPet);
+// // Prints: 'Rover'
+// console.log(secondPet);
+// // Prints: 'Snuffles'
+
+// // Equivalent in traditional bracket notation:
+// console.log(petsArray[0]);
+// // Prints: 'Rover'
+// console.log(petsArray[1]);
+// // Prints: 'Snuffles'
 
 // ! Exercise 2:
 // a. Given the provided `pizzaToppings` array, use destructuring to extract 
@@ -51,24 +57,30 @@ const pizzaToppings = ['Pineapple', 'Olives', 'Anchovies'];
 
 // Your code here:
 
-const person = {
-  name: 'Alex',
-  role: 'Software Engineer',
-};
+const [firstIngredient, secondIngredient] = pizzaToppings;
 
-// Object destructuring:
-const { name, role } = person;
+console.log(firstIngredient);
+console.log(secondIngredient);
 
-console.log(name);
-// Prints: 'Alex'
-console.log(role);
-// Prints: 'Software Engineer'
 
-// Equivalent in traditional dot notation:
-console.log(person.name); 
-// Prints: 'Alex'
-console.log(person.role); 
-// Prints: 'Software Engineer'
+// const person = {
+//   name: 'Alex',
+//   role: 'Software Engineer',
+// };
+
+// // Object destructuring:
+// const { name, role } = person;
+
+// console.log(name);
+// // Prints: 'Alex'
+// console.log(role);
+// // Prints: 'Software Engineer'
+
+// // Equivalent in traditional dot notation:
+// console.log(person.name); 
+// // Prints: 'Alex'
+// console.log(person.role); 
+// // Prints: 'Software Engineer'
 
 // ! Exercise 3:
 // a. Given the provided `car` object, use destructuring to create two
@@ -85,40 +97,45 @@ const car = {
 
 // Your code here:
 
-const originalArray = [1, 2, 3];
-const duplicateArray = [...originalArray];
+const {make, model} = car;
 
-console.log(duplicateArray); 
-// Prints: [1, 2, 3]
+console.log(make);
+console.log(model);
 
-duplicateArray.push(4); 
-// Using spread created a *copy* of the `originalArray`
-// Changing it doesn't also change `originalArray`
+// const originalArray = [1, 2, 3];
+// const duplicateArray = [...originalArray];
 
-console.log(duplicateArray); 
-// Prints: [1, 2, 3, 4]
-console.log(originalArray); 
-// Prints: [1, 2, 3]
+// console.log(duplicateArray); 
+// // Prints: [1, 2, 3]
 
-const originalArray = [1, 2, 3];
-const referenceArray = originalArray; 
-// referenceArray a reference to originalArray (not a copy)
+// duplicateArray.push(4); 
+// // Using spread created a *copy* of the `originalArray`
+// // Changing it doesn't also change `originalArray`
 
-referenceArray.push(4); 
-// This means modifying `referenceArray` also modifies `originalArray`
+// console.log(duplicateArray); 
+// // Prints: [1, 2, 3, 4]
+// console.log(originalArray); 
+// // Prints: [1, 2, 3]
 
-console.log(referenceArray); 
-// Prints: [1, 2, 3, 4]
-console.log(originalArray);
-// Prints: [1, 2, 3, 4]
+// // const originalArray = [1, 2, 3];
+// const referenceArray = originalArray; 
+// // referenceArray a reference to originalArray (not a copy)
 
-const fruits = ['apple', 'orange', 'banana'];
-const vegetables = ['broccoli', 'carrot', 'spinach'];
+// referenceArray.push(4); 
+// // This means modifying `referenceArray` also modifies `originalArray`
 
-const fruitsAndVegetables = [...fruits, ...vegetables];
+// console.log(referenceArray); 
+// // Prints: [1, 2, 3, 4]
+// console.log(originalArray);
+// // Prints: [1, 2, 3, 4]
 
-console.log(fruitsAndVegetables); 
-// Prints: ['apple', 'orange', 'banana', 'broccoli', 'carrot', 'spinach']
+// const fruits = ['apple', 'orange', 'banana'];
+// const vegetables = ['broccoli', 'carrot', 'spinach'];
+
+// const fruitsAndVegetables = [...fruits, ...vegetables];
+
+// console.log(fruitsAndVegetables); 
+// // Prints: ['apple', 'orange', 'banana', 'broccoli', 'carrot', 'spinach']
 
 // ! Exercise 4: 
 // a. Duplicate the provided `morePizzaToppings` array using the spread 
@@ -131,6 +148,10 @@ console.log(fruitsAndVegetables);
 const morePizzaToppings = ['Cheese', 'Sauce'];
 
 // Your code here:
+
+const uncontroversialPizzaToppings = [... morePizzaToppings];
+console.log(uncontroversialPizzaToppings);
+
 
 // ! Exercise 5:
 // a. Duplicate the provided `anotherCar` object and spread its values into a 
@@ -149,6 +170,13 @@ const anotherCar = {
 };
 
 // Your code here:
+
+const myCar = {... anotherCar};
+myCar.make = 'Nissan';
+myCar.model = 'Altima';
+
+console.log(myCar.make);
+console.log(myCar.model);
 
 // ! Exercise 6:
 // a. Define a variable named `propertyName` and assign a string (like 
@@ -175,6 +203,33 @@ const anotherCar = {
 //
 // Your code here:
 
+const propertyName = 'age';
+
+const userProfile = {
+  [propertyName]: 12,
+};
+
+console.log(userProfile);
+
+// ! Exercise 8:
+// a. Create a function with two parameters, `noun` and `adjective`.
+// 
+// b. Give `noun` a default value of "cat" and `adjective` a default value of 
+//    "orange".
+//
+// c. The function should log a sentence 'The cat is orange.' by default, but 
+//    should substitute the appropriate parameters when it is supplied with 
+//    arguments.
+//
+// Your code here:
+
+const sentence = (noun = 'cat', adjective = 'orange') => {
+  console.log(`The ${noun} is ${adjective}.`);
+}
+
+console.log(sentence());
+console.log(sentence('dog', 'brown'));
+
 // ! Exercise 9:
 // a. Convert the following `if...else` statement into a ternary:
 //
@@ -189,6 +244,10 @@ const anotherCar = {
 const pizza = 'tasty';
 
 // Your code here:
+
+let pizzaTaste = pizza === 'tasty' ? 'yum' : 'yuck';
+
+console.log(pizzaTaste);
 
 // ! Exercise 10:
 // ! 10.1: Set language
@@ -208,7 +267,13 @@ const pizza = 'tasty';
 // Your code here (localLangConfig is provided to get you started):
 
 // Simulated language configuration (change this variable to test)
-const localLangConfig = null; // Change to 'es', 'fr', etc., or leave it `null`.
+const localLangConfig = 'fr'; // Change to 'es', 'fr', etc., or leave it `null`.
+
+
+let lang = localLangConfig || 'en';
+
+console.log(lang);
+
 
 // ! 10.2: Set website theme
 // Intro: In this exercise, you'll construct a single line of code that assigns 
@@ -226,7 +291,11 @@ const localLangConfig = null; // Change to 'es', 'fr', etc., or leave it `null`.
 // Your code here (`savedUserTheme` is provided to get you started):
 
 // Simulated user theme preference (change this variable to test)
-const savedUserTheme = null; // Change to 'dark', etc., or leave it `null`.
+const savedUserTheme = 'dark'; // Change to 'dark', etc., or leave it `null`.
+
+let theme = savedUserTheme || 'light';
+
+console.log(theme);
 
 // ! Exercise 11:
 // a. Use optional chaining in a console.log so that a console log of
@@ -240,3 +309,6 @@ const adventurer = {
 
 // Your code here:
 
+let cat = adventurer.cat?.age;
+
+console.log(cat);
